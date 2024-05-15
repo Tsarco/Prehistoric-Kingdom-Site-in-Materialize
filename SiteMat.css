@@ -1,0 +1,554 @@
+
+/*==================== GOOGLE FONTS ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* ============== SITE FONTS ============== */
+@font-face{
+  font-family: 'futura-a';
+  src: url('fonts/FuturaPTLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face{
+  font-family: 'futura-b';
+  src: url('fonts/FuturaPTBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+    --header-height: 3rem;
+
+    /*========== Colors ==========*/
+    /* Change favorite color */
+    --hue-color: 148; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+    /* Green color for site: 148, 67, 36 
+    yellow 48, 89, 50
+    */
+    --hue2-color: 48;
+
+    /* HSL color mode */
+    --first-color: hsl(var(--hue-color), 67%, 36%); /*hue, saturation, light     */
+    --first-color-second: hsl(var(--hue-color), 60%, 36%);
+    --first-color-alt: hsl(var(--hue-color), 67%, 32%);
+    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+    --title-color: hsl(var(--hue-color), 0%, 100%);
+    --text-color: #fff;
+    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --input-color: hsl(var(--hue2-color), 89%, 50%);
+    --body-color: hsl(var(--hue-color), 60%, 99%);
+    --container-color: #fff;
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+    
+
+    /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
+
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --huge-font-size: 50px;
+    --giga-font-size: 30px;
+    --big-font-size: 22px;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== Margenes Bottom ==========*/
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+    --mb-5: 4rem;
+    --mb-big: 10rem;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+    :root {
+        --huge-font-size: 70px;
+        --big-font-size: 20px;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+
+
+}
+
+/*========== Variables Dark theme ==========*/
+
+
+/*========== Button Dark/Light ==========*/
+
+
+/*==================== BASE ====================*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--first-color);
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, button {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a, a:hover {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  font-family: 'futura-b', sans-serif;
+  font-size: var(--giga-font-size);
+}
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+
+
+
+.section {
+  padding: 2rem 0 4rem;
+  background-color: var(--first-color);
+}
+
+.section-title {
+  font-size: var(--big-font-size);
+  color: var(--title-color);
+  position: var(--z-fixed);
+}
+
+.section-subtitle {
+  font-family: 'futura-b', sans-serif;
+  display: block;
+  font-size: var(--h3-font-size);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: var(--mb-3);
+  padding: var(--mb-2);
+  
+}
+
+.section-title, 
+.section-subtitle {
+  text-align: center;
+}
+
+.space{
+  height: auto;
+  padding: 20px;
+}
+
+.right{
+  float: right;
+}
+
+.block{
+  margin: var(--mb-3) 0;;
+}
+
+
+
+
+
+/*==================== LAYOUT ====================*/
+.container {
+  margin-left: var(--mb-1-5);
+  margin-right: var(--mb-1-5);
+  margin-top: var(--mb-1-5);
+  display: flex;
+  flex: wrap;
+}
+
+.container-2{
+  margin: 0px var(--mb-1-5) var(--mb-1-5) var(--mb-1-5);
+}
+
+.row{
+  margin: 0px;
+}
+
+.col-2{
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  margin-top: 40px;
+  float: right;
+  
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--body-color);
+}
+
+/*==================== NAV ====================*/
+
+.nav-wrapper, .sidenav{
+    background-color: var(--first-color);
+    color: white;
+}
+
+
+.section__title{
+    font-size: var(--h2-font-size);
+}
+
+.nav-link{
+    font-size: var(--h1-font-size);
+}
+
+
+
+/* show menu */
+
+.sidenav li>a {
+  color: #fff;
+  display: block;
+  justify-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 32px;
+}
+
+.sidenav li{
+  color: #fff;
+  justify-items: center;
+}
+
+li .button-yellow-1{
+  text-align:center;
+  background-color: transparent;
+  padding: var(--mb-0-5) var(--mb-1-5) var(--mb-0-5) var(--mb-1-5);
+  border: var(--input-color) 3px solid;
+  border-radius: 50px;
+  color: var(--input-color);
+  margin: var(--mb-1);
+  font-size: var(--big-font-size);
+  transition: all ease-in 0.5s;
+}
+
+
+
+
+/* Active link */
+
+.nav-wrapper a:hover, .nav-wrapper a:focus, .sidenav a:focus{
+  background-color: var(--first-color);
+}
+
+.sidenav-trigger a:focus{
+background-color: var(--first-color);
+}
+
+
+/* Change background header */
+
+
+/*==================== HOME ====================*/
+
+
+/*==================== BUTTONS ====================*/
+
+button{
+  text-align: center;
+  
+}
+
+.button-yellow-1{
+  background-color: transparent;
+  padding: var(--mb-2) var(--mb-3) var(--mb-2) var(--mb-3);
+  border: var(--input-color) 3px solid;
+  border-radius: 50px;
+  color: var(--input-color);
+  margin: var(--mb-1);
+  font-size: var(--big-font-size);
+  transition: all ease-in 0.5s;
+}
+
+.button-yellow-2 {
+  background-color: transparent;
+  padding: var(--mb-2) var(--mb-3) var(--mb-2) var(--mb-3);
+  border: var(--input-color) 3px solid;
+  border-radius: 50px;
+  color: var(--input-color);
+  margin: var(--mb-3) var(--mb-0-5) var(--mb-0-5) var(--mb-0-5);
+  font-size: var(--big-font-size);
+  transition: all ease-in 0.5s;
+}
+
+.button-yellow-1:hover, .button-yellow-2:hover{
+
+  background-color: var(--input-color);
+  color: var(--container-color);
+  cursor: pointer;
+  transition-timing-function: ease-out;
+  transition: color 0.2s;
+
+}
+
+.txt-1{
+  font-family: 'futura-a', sans-serif;
+  word-wrap: break-word;
+  font-size: var(--huge-font-size);
+}
+
+
+
+.txt-2{
+  font-family: 'futura-b', sans-serif;
+  font-size: var(--big-font-size);
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: var(--mb-3);
+}
+
+.txt-3{
+
+  font-size: var(--h3-font-size);
+  font-weight: -100;
+}
+
+
+
+
+/*==================== INTRO ====================*/
+
+
+
+/*==================== NEWS ====================*/
+
+.bg-1{
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.bg-img-1{
+  height: 1200px;
+  position: absolute;
+  z-index: 1;
+}
+
+
+/* O código abaixo é basicamente o mesmo que foi utilizado no site original, mas como
+   tem vários elementos e funções que eu não estou familiar, tentarei explicar da
+   o meu entendimento do código para o meu Eu futuro! :) */
+
+
+.img-fundo{
+  width: 100%; 
+  height: 100%; 
+  object-position: 50% 50%; /**/
+  object-fit: cover; /**/
+}
+
+
+h1{
+  font-size: var(--big-font-size);
+}
+
+
+/*==================== ABOUT GAME ====================*/
+
+.icon{
+  margin: var(--mb-0-5);
+}
+
+.title-yellow{
+  font-family: 'futura-b', sans-serif;
+  font-size: var(--giga-font-size);
+  color: var(--input-color);
+  margin: var(--mb-1-5) var(--mb-1-5) var(--mb-1-5) 0px;
+}
+
+.bg-2{
+  background-color: transparent;
+  position: relative;
+  z-index: 4;
+}
+
+.bg-img-2, .img-overlay{
+  height: 950px;
+  position: absolute;
+  z-index: 3; /*Z-index define as 'camadas' de objetos, desde que eles tem a sua 'position' definida.*/
+}
+
+.bg-img{
+  height: 1500px;
+}
+
+.img-overlay{
+  background-color: black;
+}
+
+
+
+
+/*==================== SOCIAL MEDIAS ====================*/
+
+
+/*==================== FOOTER ====================*/
+
+.green{
+  background-color:#1e9958;
+  height: 150px;
+}
+
+.footer-1{
+  background-color: black; 
+  height: 300px; 
+  width: 100%; 
+  position: absolute; 
+  z-index: 9;
+}
+
+
+/* Active Modal */
+
+
+/*==================== PORTFOLIO ====================*/
+
+
+/*==================== PROJECT IN MIND ====================*/
+
+
+/*==================== TESTIMONIAL ====================*/
+
+
+/*==================== CONTACT ME ====================*/
+
+
+/*==================== FOOTER ====================*/
+
+
+/*========== SCROLL UP ==========*/
+
+
+.reveal{
+  visibility: hidden;
+}
+
+
+/*========== SCROLL BAR ==========*/
+
+
+/*==================== MEDIA QUERIES ====================*/
+/* For small devices */
+@media only screen and (max-width: 600px) {
+
+}
+
+
+
+/* For medium devices */
+@media screen and (min-device-width: 768px)
+and (max-device-width: 1024px) {
+  .footer-1{
+    height: 420px;
+  }
+  
+}
+
+
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .button-yellow-2 {
+    background-color: transparent;
+    padding: var(--mb-1-5) var(--mb-2-5) var(--mb-1-5) var(--mb-2-5);
+    border: var(--input-color) 3px solid;
+    border-radius: 50px;
+    color: var(--input-color);
+    margin: var(--mb-big) var(--mb-0-5);
+    font-size: var(--h3-font-size);
+    transition: all ease-in 0.5s;
+  }
+  .bg-img-2, .img-overlay{
+    height: 600px;
+    position: absolute;
+    z-index: 3; /*Z-index define as 'camadas' de objetos, desde que eles tem a sua 'position' definida.*/
+  }
+  
+  .footer-1{
+    height: 400px;
+  }
+
+  .txt-2{
+    font-size: var(--giga-font-size);
+  }
+
+  li .button-yellow-1{
+    text-align:center;
+    height: 55px;
+    background-color: transparent;
+    padding: 0px var(--mb-1-5) var(--mb-1-5) var(--mb-1-5);
+    border: var(--input-color) 3px solid;
+    border-radius: 40px;
+    color: var(--input-color);
+    margin: 2px;
+    font-size: var(--smaller-font-size);
+    transition: all ease-in 0.5s;
+  }
+}
+
+
+
+
